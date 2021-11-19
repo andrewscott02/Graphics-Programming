@@ -12,11 +12,9 @@ public class WaterRipples : MonoBehaviour
 
     public MeshCollider meshCollider;
 
-    public float sineWaveCount;
+    public float sineWaveCount, waveSpeed = 1;
 
     public float waveHeightMin, waveHeightMax;
-
-    public float maxRecorded, minRecorded;
 
     // Start is called before the first frame update
     void Start()
@@ -32,17 +30,7 @@ public class WaterRipples : MonoBehaviour
         {
             for (int i = 0; i < vertices.Length; i++)
             {
-                vertices[i].y = Remap(Mathf.Sin(sineWaveCount * i + Time.time), 0, 1, waveHeightMin, waveHeightMax);
-
-                if (vertices[i].y > maxRecorded)
-                {
-                    maxRecorded = vertices[i].y;
-                }
-
-                if (vertices[i].y < minRecorded)
-                {
-                    minRecorded = vertices[i].y;
-                }
+                vertices[i].y = Remap(Mathf.Sin(waveSpeed * (sineWaveCount * i + Time.time)), 0, 1, waveHeightMin, waveHeightMax);
             }
 
             mesh.vertices = vertices;
