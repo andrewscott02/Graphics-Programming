@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mud
-  m_Shader: {fileID: -6465566751694194690, guid: 2a170090e09811f46a149761bdaf043b, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3640c13c28a067c4bad9d8be376ea3ec, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

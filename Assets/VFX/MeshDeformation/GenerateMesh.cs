@@ -41,7 +41,13 @@ public class GenerateMesh : MonoBehaviour
     Vector2[] uvs;
 
     Color[] colours;
-    
+
+
+    #endregion
+
+    #region Mesh Collision
+    [Header("Mesh Collision")]
+    public bool collide;
 
     #endregion
 
