@@ -581,7 +581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554940470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.38, y: 0, z: 23.92}
+  m_LocalPosition: {x: 15.97, y: 14.96, z: 31.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 801863932}
@@ -808,6 +808,7 @@ GameObject:
   - component: {fileID: 801863931}
   - component: {fileID: 801863930}
   - component: {fileID: 801863933}
+  - component: {fileID: 801863934}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -830,6 +831,10 @@ MonoBehaviour:
   parentTransform: {fileID: 554940471}
   xSize: 10
   zSize: 10
+  sineWaveCount: 1.78
+  waveSpeed: 1.65
+  waveHeightMin: 0
+  waveHeightMax: 0.2
 --- !u!33 &801863931
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -845,7 +850,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801863929}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -893,6 +898,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &801863934
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801863929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1143063781
 GameObject:
   m_ObjectHideFlags: 0

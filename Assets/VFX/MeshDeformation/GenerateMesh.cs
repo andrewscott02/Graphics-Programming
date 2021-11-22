@@ -25,8 +25,8 @@ public class GenerateMesh : MonoBehaviour
     #region Waves
 
     [Header("Waves")]
-    public float sineWaveCount, waveSpeed = 1;
-
+    public float sineWaveCount;
+    public float waveSpeed = 1;
     public float waveHeightMin, waveHeightMax;
 
     #endregion
@@ -52,6 +52,14 @@ public class GenerateMesh : MonoBehaviour
         //UpdateMesh();
 
         parentTransform.position = new Vector3();
+    }
+
+    private void Update()
+    {
+        //CreateQuad();
+        UpdateMesh();
+
+        //parentTransform.position = new Vector3();
     }
 
     void CreateQuad()
@@ -96,27 +104,26 @@ public class GenerateMesh : MonoBehaviour
         }
     }
 
-    void Update()
+    void UpdateMesh()
     {
-        mesh.Clear();
-
         if (mesh != null)
         {
+            mesh.Clear();
+
             for (int i = 0; i < verts.Length; i++)
             {
                 verts[i].y = Remap(Mathf.Sin(waveSpeed * (sineWaveCount * i + Time.time)), 0, 1, waveHeightMin, waveHeightMax);
             }
 
             mesh.vertices = verts;
-
+            mesh.triangles = tris;
             mesh.RecalculateBounds();
+            mesh.RecalculateNormals();
 
             meshCollider.sharedMesh = mesh;
+            meshCollider.sharedMesh.RecalculateBounds();
+            meshCollider.sharedMesh.RecalculateNormals();
         }
-
-        mesh.triangles = tris;
-
-        mesh.RecalculateNormals();
     }
 
     private void OnDrawGizmos()
