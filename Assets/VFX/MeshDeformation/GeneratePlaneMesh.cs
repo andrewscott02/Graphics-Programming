@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
-public class GenerateMesh : MonoBehaviour
+public class GeneratePlaneMesh : MonoBehaviour
 {
     #region Mesh Generation
 
