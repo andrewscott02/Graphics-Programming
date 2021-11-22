@@ -20,6 +20,8 @@ public class GenerateMesh : MonoBehaviour
     MeshFilter meshFilter;
     MeshCollider meshCollider;
 
+    float minTerrainHeight, maxTerrainHeight;
+
     #endregion
 
     #region Waves
@@ -34,7 +36,12 @@ public class GenerateMesh : MonoBehaviour
     #region Material
 
     [Header("Material")]
+    public Gradient gradient;
+
     Vector2[] uvs;
+
+    Color[] colours;
+    
 
     #endregion
 
@@ -143,6 +150,15 @@ public class GenerateMesh : MonoBehaviour
             for (int i = 0; i < verts.Length; i++)
             {
                 verts[i].y = Remap(Mathf.Sin(waveSpeed * (sineWaveCount * i + Time.time)), 0, 1, waveHeightMin, waveHeightMax);
+
+                if (verts[i].y < minTerrainHeight)
+                {
+                    minTerrainHeight = verts[i].y;
+                }
+                if (verts[i].y > maxTerrainHeight)
+                {
+                    maxTerrainHeight = verts[i].y;
+                }
             }
 
             mesh.vertices = verts;
@@ -151,10 +167,23 @@ public class GenerateMesh : MonoBehaviour
             mesh.RecalculateNormals();
 
             mesh.uv = uvs;
+            mesh.colors = colours;
 
             meshCollider.sharedMesh = mesh;
             meshCollider.sharedMesh.RecalculateBounds();
             meshCollider.sharedMesh.RecalculateNormals();
+
+            colours = new Color[verts.Length];
+
+            for (int i = 0, z = 0; z <= zSize; z++)
+            {
+                for (int x = 0; x <= xSize; x++)
+                {
+                    float height = Remap(verts[i].y, minTerrainHeight, maxTerrainHeight, 0, 1);
+                    colours[i] = gradient.Evaluate(height);
+                    i++;
+                }
+            }
         }
     }
 
