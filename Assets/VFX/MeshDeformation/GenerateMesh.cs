@@ -31,6 +31,13 @@ public class GenerateMesh : MonoBehaviour
 
     #endregion
 
+    #region Material
+
+    [Header("Material")]
+    Vector2[] uvs;
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +58,7 @@ public class GenerateMesh : MonoBehaviour
         CreateQuad();
         //UpdateMesh();
 
-        parentTransform.position = new Vector3();
+        ResetTransform();
     }
 
     private void Update()
@@ -64,6 +71,8 @@ public class GenerateMesh : MonoBehaviour
 
     void CreateQuad()
     {
+        #region Vertices
+
         verts = new Vector3[(xSize + 1) * (zSize + 1)];
 
         for (int z = 0, i = 0; z <= zSize; z++)
@@ -79,6 +88,10 @@ public class GenerateMesh : MonoBehaviour
                 i++;
             }
         }
+
+        #endregion
+
+        #region Triangles
 
         tris = new int[xSize * zSize * 6];
 
@@ -102,6 +115,23 @@ public class GenerateMesh : MonoBehaviour
 
             vertCount++;
         }
+
+        #endregion
+
+        #region Material
+
+        uvs = new Vector2[verts.Length];
+
+        for (int i = 0, z = 0; z <= zSize; z++)
+        {
+            for (int x = 0; x <= xSize; x++)
+            {
+                uvs[i] = new Vector2((float)x / xSize, (float)z / zSize);
+                i++;
+            }
+        }
+
+        #endregion
     }
 
     void UpdateMesh()
@@ -120,6 +150,8 @@ public class GenerateMesh : MonoBehaviour
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
 
+            mesh.uv = uvs;
+
             meshCollider.sharedMesh = mesh;
             meshCollider.sharedMesh.RecalculateBounds();
             meshCollider.sharedMesh.RecalculateNormals();
@@ -135,6 +167,13 @@ public class GenerateMesh : MonoBehaviour
                 Gizmos.DrawSphere(verts[i], 0.1f);
             }
         }
+    }
+
+    private void ResetTransform()
+    {
+        float y = this.gameObject.transform.position.y;
+
+        parentTransform.position = new Vector3(0, y, 0);
     }
 
     private float Remap(float value, float inMin, float inMax, float outMin, float outMax)
