@@ -95,9 +95,9 @@ public class SwordTrail : MonoBehaviour
         {
             verts[i] = QuadraticLerp(
                 swordBase.transform.position,
-                trailPoint.transform.position,
-                swordPoint.transform.position,
                 
+                swordPoint.transform.position,
+                trailPoint.transform.position,
                 Remap(i, 0, vertexCount - 1, 0, 1));
         }
 
