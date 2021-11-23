@@ -107,7 +107,7 @@ public class SwordTrail : MonoBehaviour
 
         tris = new int[vertexCount * 3];
 
-        for (int t = 0, v = 0; t < vertexCount; t+=3, v++)
+        for (int t = 0, v = 0; t < vertexCount + 3; t+=3, v++)
         {
             tris[t] = v;
             tris[t + 1] = v + 1;
@@ -135,7 +135,7 @@ public class SwordTrail : MonoBehaviour
                 float distance = Vector3.Magnitude(swordPoint.transform.position - verts[i]);
                 distance = Remap(distance, 0, 2.5f, 0, 1);
 
-                colours[i] = gradient.Evaluate(distance);
+                colours[i].a = Mathf.Clamp(gradient.Evaluate(distance).a, 0, 1);
 
                 Debug.Log(gradient.Evaluate(distance) + " || " + Vector3.Magnitude(swordPoint.transform.position - verts[i]));
             }
@@ -144,7 +144,7 @@ public class SwordTrail : MonoBehaviour
 
     #region Helper functions
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (verts != null)
         {

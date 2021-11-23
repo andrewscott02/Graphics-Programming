@@ -49,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
             movement.x = xMove;
             movement.z = zMove;
 
-            //rb.velocity += speed * movement * Time.deltaTime;
+            rb.velocity += speed * movement * Time.deltaTime;
 
-            controller.Move(speed * movement * Time.deltaTime);
+            //controller.Move(speed * movement * Time.deltaTime);
 
-            controller.Move(new Vector3(0, -9.81f, 0));
+            //controller.Move(new Vector3(0, -9.81f, 0));
         }
     }
 

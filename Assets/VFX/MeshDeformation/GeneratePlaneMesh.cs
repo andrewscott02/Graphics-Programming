@@ -193,7 +193,7 @@ public class GeneratePlaneMesh : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (verts != null)
         {

@@ -6,6 +6,15 @@ public class SwordSpinner : MonoBehaviour
 {
     public float attackSpeed = 1f;
 
+    public MeshRenderer trailRenderer;
+
+    bool cancel = false;
+
+    private void Start()
+    {
+        TurnRendererVisibility(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +28,32 @@ public class SwordSpinner : MonoBehaviour
             //Debug.Log("Start spin sword | Old Rot = " + transform.rotation.z + " | New Rot = " + newRot.z + " |");
 
             transform.eulerAngles += newRot;
+
+            TurnRendererVisibility(true);
+            cancel = false;
+        }
+        else
+        {
+            cancel = true;
+            StartCoroutine("turnFXOff", 0.3f);
+        }
+    }
+
+    IEnumerator turnFXOff(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (cancel!)
+        {
+            TurnRendererVisibility(false);
+        }
+    }
+
+    void TurnRendererVisibility(bool on)
+    {
+        if (trailRenderer != null)
+        {
+            trailRenderer.enabled = on;
         }
     }
 }
