@@ -37,8 +37,6 @@ public class SwordTrail : MonoBehaviour
     [Header("Material")]
     public Gradient gradient;
 
-    Vector2[] uvs;
-
     Color[] colours;
 
 
@@ -81,9 +79,7 @@ public class SwordTrail : MonoBehaviour
 
         Vector3 newPos = new Vector3();
 
-        newPos.x = Mathf.Lerp(trailPoint.transform.position.x, desiredTrailPoint.transform.position.x, Time.deltaTime * lerpSpeed);
-        newPos.y = Mathf.Lerp(trailPoint.transform.position.y, desiredTrailPoint.transform.position.y, Time.deltaTime * lerpSpeed);
-        newPos.z = Mathf.Lerp(trailPoint.transform.position.z, desiredTrailPoint.transform.position.z, Time.deltaTime * lerpSpeed);
+        newPos = LinearLerp(trailPoint.transform.position, desiredTrailPoint.transform.position, Time.deltaTime * lerpSpeed);
 
         //Debug.Log(trailPoint.transform.position + " || " + desiredTrailPoint.transform.position);
 
@@ -95,53 +91,29 @@ public class SwordTrail : MonoBehaviour
 
         verts = new Vector3[vertexCount];
 
-        verts[0] = swordBase.transform.position;
-        verts[1] = trailPoint.transform.position;
-        verts[2] = swordPoint.transform.position;
-
-        /*
-        verts[vertexCount - 2] = trailPoint.transform.position;
-        verts[vertexCount - 1] = swordPoint.transform.position;
-
-        for (int i = 1; i < vertexCount - 2; i++)
+        for (int i = 0; i < vertexCount; i++)
         {
-            verts[i].x = Mathf.Lerp(swordBase.transform.position.x, trailPoint.transform.position.x, Remap(i, 3, vertexCount - 1, 0, 1));
-            verts[i].y = Mathf.Lerp(swordBase.transform.position.y, trailPoint.transform.position.y, Remap(i, 3, vertexCount - 1, 0, 1));
-            verts[i].z = Mathf.Lerp(swordBase.transform.position.z, trailPoint.transform.position.z, Remap(i, 3, vertexCount - 1, 0, 1));
+            verts[i] = QuadraticLerp(
+                swordBase.transform.position,
+                trailPoint.transform.position,
+                swordPoint.transform.position,
+                
+                Remap(i, 0, vertexCount - 1, 0, 1));
         }
-        */
+
         #endregion
 
         #region Triangles
 
-        tris = new int[3] { 0, 1, 2 };
+        tris = new int[vertexCount * 3];
 
-        /*
-        tris = new int[vertexCount * 6];
-
-        for (int i = 0; i < vertexCount - 2; i++)
+        for (int t = 0, v = 0; t < vertexCount; t+=3, v++)
         {
-            tris[i] = vertexCount - 1;
-            tris[i + 1] = i;
-            tris[i + 2] = i + 1;
+            tris[t] = v;
+            tris[t + 1] = v + 1;
+            tris[t + 2] = vertexCount - 1;
         }
-        */
 
-        #endregion
-
-        #region Material
-        /*
-        uvs = new Vector2[verts.Length];
-
-        for (int i = 0, z = 0; z <= zSize; z++)
-        {
-            for (int x = 0; x <= xSize; x++)
-            {
-                uvs[i] = new Vector2((float)x / xSize, (float)z / zSize);
-                i++;
-            }
-        }
-        */
         #endregion
     }
 
@@ -155,8 +127,22 @@ public class SwordTrail : MonoBehaviour
             mesh.triangles = tris;
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
+
+            colours = new Color[verts.Length];
+
+            for (int i = 0; i < vertexCount; i++)
+            {
+                float distance = Vector3.Magnitude(swordPoint.transform.position - verts[i]);
+                distance = Remap(distance, 0, 2.5f, 0, 1);
+
+                colours[i] = gradient.Evaluate(distance);
+
+                Debug.Log(gradient.Evaluate(distance) + " || " + Vector3.Magnitude(swordPoint.transform.position - verts[i]));
+            }
         }
     }
+
+    #region Helper functions
 
     private void OnDrawGizmos()
     {
@@ -181,4 +167,21 @@ public class SwordTrail : MonoBehaviour
         //https://docs.unity3d.com/Packages/com.unity.shadergraph@6.9/manual/Remap-Node.html
         return outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
     }
+
+    private Vector3 LinearLerp(Vector3 v0, Vector3 v1, float lerpPoint)
+    {
+        return new Vector3(Mathf.Lerp(v0.x, v1.x, lerpPoint), Mathf.Lerp(v0.y, v1.y, lerpPoint), Mathf.Lerp(v0.z, v1.z, lerpPoint));
+    }
+
+    private Vector3 QuadraticLerp(Vector3 v0, Vector3 v1, Vector3 v2, float lerpPoint)
+    {
+        Vector3 l0Point = LinearLerp(v0, v1, lerpPoint);
+        Vector3 l1Point = LinearLerp(v1, v2, lerpPoint);
+
+        Vector3 q0 = LinearLerp(l0Point, l1Point, lerpPoint);
+
+        return q0;
+    }
+
+    #endregion
 }
