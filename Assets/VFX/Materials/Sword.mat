@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SwordTrail
+  m_Name: Sword
   m_Shader: {fileID: -6465566751694194690, guid: 6c29868183a4bf141a99216d6eb89b9e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -95,9 +95,10 @@ Material:
     m_Floats:
     - Vector1_4856c1cb3cf44731819bb1e0bcc56b7b: 0.63
     - Vector1_5ec8410398d246f6a0551bc8c0fda431: 1
+    - Vector1_96d34f7ce0b74dc5813a11be0fce1efc: 1
     - Vector1_b7c2bc9005144764ab255369f84d8ad0: 50
     - Vector1_c2a749303c6943349bba1a4602abc843: 0.01
-    - Vector1_e158304f57e246278c22d8fe8857d2b8: 100
+    - Vector1_e158304f57e246278c22d8fe8857d2b8: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
