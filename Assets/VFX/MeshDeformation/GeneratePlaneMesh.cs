@@ -115,7 +115,7 @@ public class GeneratePlaneMesh : MonoBehaviour
         {
             for (int x = 0; x < xSize; x++)
             {
-                tris[triCount + 0] = vertCount + 0;
+                tris[triCount + 0] = vertCount;
                 tris[triCount + 1] = vertCount + 1 + xSize;
                 tris[triCount + 2] = vertCount + 1;
                 tris[triCount + 3] = vertCount + 1;
