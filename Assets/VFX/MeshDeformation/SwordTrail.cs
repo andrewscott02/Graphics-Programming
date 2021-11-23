@@ -151,8 +151,6 @@ public class SwordTrail : MonoBehaviour
                 distance = Remap(distance, 0, 2.5f, 0, 1);
 
                 colours[i].a = Mathf.Clamp(gradient.Evaluate(distance).a, 0, 1);
-
-
             }
 
             mesh.colors = colours;
