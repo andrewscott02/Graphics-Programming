@@ -19,7 +19,7 @@ public class SwordTrail : MonoBehaviour
     private Vector3 offSet = new Vector3(17.6f, 14.0f, 23.8f);
 
     [Header("Mesh Generation")]
-    [Range(3,20)]
+    [Range(3, 10)]
     public int vertexCount;
 
     Mesh mesh;
@@ -37,8 +37,10 @@ public class SwordTrail : MonoBehaviour
     [Header("Material")]
     public Gradient gradient;
 
-    Color[] colours;
+    Vector2[] uvs;
+    public float uvScale = 1f;
 
+    Color[] colours;
 
     #endregion
 
@@ -115,6 +117,17 @@ public class SwordTrail : MonoBehaviour
         }
 
         #endregion
+
+        #region Material
+        
+        uvs = new Vector2[verts.Length];
+
+        for (int i = 0; i <= vertexCount; i++)
+        {
+            uvs[i] = new Vector2((float)i / vertexCount, uvScale);
+            i++;
+        }
+        #endregion
     }
 
     void UpdateMesh()
@@ -128,6 +141,8 @@ public class SwordTrail : MonoBehaviour
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
 
+            mesh.uv = uvs;
+
             colours = new Color[verts.Length];
 
             for (int i = 0; i < vertexCount; i++)
@@ -137,8 +152,12 @@ public class SwordTrail : MonoBehaviour
 
                 colours[i].a = Mathf.Clamp(gradient.Evaluate(distance).a, 0, 1);
 
-                Debug.Log(gradient.Evaluate(distance) + " || " + Vector3.Magnitude(swordPoint.transform.position - verts[i]));
+
             }
+
+            mesh.colors = colours;
+
+            //Debug.Log(colours[2].a);
         }
     }
 

@@ -698,6 +698,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  uvScale: 1
 --- !u!33 &206551195
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1789,7 +1790,7 @@ PrefabInstance:
     - target: {fileID: 3376878926422039479, guid: f482c56f1e73eb141a70c512cc441ac6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100002, guid: e3ae06a3979f53046aa05330d69de1fa, type: 3}
+      objectReference: {fileID: 2100000, guid: 06a5b14c16b7e62479dec216f2cfa896, type: 2}
     - target: {fileID: 3616946859749152754, guid: f482c56f1e73eb141a70c512cc441ac6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068

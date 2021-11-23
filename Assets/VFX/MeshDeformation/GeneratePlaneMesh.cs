@@ -173,7 +173,6 @@ public class GeneratePlaneMesh : MonoBehaviour
             mesh.RecalculateNormals();
 
             mesh.uv = uvs;
-            mesh.colors = colours;
 
             meshCollider.sharedMesh = mesh;
             meshCollider.sharedMesh.RecalculateBounds();
@@ -190,6 +189,8 @@ public class GeneratePlaneMesh : MonoBehaviour
                     i++;
                 }
             }
+
+            mesh.colors = colours;
         }
     }
 

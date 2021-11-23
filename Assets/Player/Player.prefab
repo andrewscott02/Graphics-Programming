@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 200
+  trailRenderer: {fileID: 0}
 --- !u!1 &6732716583524172603
 GameObject:
   m_ObjectHideFlags: 0
