@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
-public class SwordTrail : MonoBehaviour
+public class NewSwordTrail : MonoBehaviour
 {
     #region Mesh Generation
 
@@ -91,16 +91,25 @@ public class SwordTrail : MonoBehaviour
 
         #region Vertices
 
-        verts = new Vector3[vertexCount];
-
-        for (int i = 0; i < vertexCount; i++)
+        if (verts != null)
         {
-            verts[i] = QuadraticLerp(
-                swordBase.transform.position,
-                
-                swordPoint.transform.position,
-                trailPoint.transform.position,
-                Remap(i, 0, vertexCount - 1, 0, 1));
+            verts = new Vector3[4];
+
+            verts[2] = verts[0];
+            verts[3] = verts[2];
+
+            verts[0] = swordBase.transform.position;
+            verts[1] = swordPoint.transform.position;
+        }
+        else
+        {
+            verts = new Vector3[4];
+
+            verts[0] = swordBase.transform.position;
+            verts[1] = swordPoint.transform.position;
+
+            verts[2] = swordBase.transform.position;
+            verts[3] = swordPoint.transform.position;
         }
 
         #endregion
@@ -125,7 +134,7 @@ public class SwordTrail : MonoBehaviour
         for (int i = 0; i <= vertexCount; i++)
         {
             //Issue with even numbers
-            uvs[i] = new Vector2((float)i / vertexCount, uvScale);
+            uvs[i] = new Vector2((float)i, uvScale);
             i++;
         }
         #endregion

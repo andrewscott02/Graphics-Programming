@@ -52,8 +52,16 @@
             "m_Id": "b0b062e833774672b002059fff95275e"
         }
     ],
-    "m_GroupDatas": [],
-    "m_StickyNoteDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
+        }
+    ],
+    "m_StickyNoteDatas": [
+        {
+            "m_Id": "830cea04305946988ae8c6f5b211a69b"
+        }
+    ],
     "m_Edges": [
         {
             "m_OutputSlot": {
@@ -303,6 +311,17 @@
     "m_ShaderOutputName": "Sampler",
     "m_StageCapability": 3,
     "m_BareResource": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "0df8fa8d812245f6bb24c0098f742f39",
+    "m_Title": "Applies an edge glow around the material",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
 }
 
 {
@@ -674,7 +693,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RedirectNodeData",
     "m_ObjectId": "451fdf02753144269221a03add35326a",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Redirect Node",
     "m_DrawState": {
@@ -827,7 +846,7 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "6dbcf4b9db6c4cae8d5060ecf291d8b3",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
@@ -880,7 +899,7 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "725be47083a341e2b59ac57974f11c2a",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
@@ -993,6 +1012,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "830cea04305946988ae8c6f5b211a69b",
+    "m_Title": "Reference",
+    "m_Content": "Thirslund, A. 2019. FORCE FIELD in Unity - SHADER GRAPH, Brackeys, YouTube. Available at: https://www.youtube.com/watch?v=NiOGWZXBg4Y (Accessed 17/11/2021)",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 367.0,
+        "y": -484.0,
+        "width": 184.0,
+        "height": 127.0
+    },
+    "m_Group": {
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "862aaa553f7c487b8ed32021a6d4047a",
     "m_Id": 2,
@@ -1044,7 +1083,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RemapNode",
     "m_ObjectId": "8aec0a47505344b599e619bc4abfda91",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Remap",
     "m_DrawState": {
@@ -1085,7 +1124,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RedirectNodeData",
     "m_ObjectId": "8ba5bfc83f934244bb6a6cb513cac5d3",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Redirect Node",
     "m_DrawState": {
@@ -1165,17 +1204,17 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "b0b062e833774672b002059fff95275e",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -692.0,
-            "y": -532.9999389648438,
-            "width": 124.0,
-            "height": 34.0
+            "x": -133.0,
+            "y": -538.9999389648438,
+            "width": 123.99999237060547,
+            "height": 33.999996185302737
         }
     },
     "m_Slots": [
@@ -1294,7 +1333,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RedirectNodeData",
     "m_ObjectId": "c0beffe9c7ce4f3680d96d302a86d3ea",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Redirect Node",
     "m_DrawState": {
@@ -1402,7 +1441,7 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "cf6cdb6221af4dce9d5b76c6938351ac",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
@@ -1440,7 +1479,7 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "d4e3a31d63bf48e3908c989bc54f2481",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Property",
     "m_DrawState": {
@@ -1475,7 +1514,7 @@
     "m_Type": "UnityEditor.ShaderGraph.FresnelNode",
     "m_ObjectId": "d8237ce3c9eb4fdd96b82f913df33dbf",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Fresnel Effect",
     "m_DrawState": {
@@ -1564,7 +1603,7 @@
     "m_Type": "UnityEditor.ShaderGraph.TimeNode",
     "m_ObjectId": "e32ab8a0cb8242ec8c6c3df3eb2cc778",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Time",
     "m_DrawState": {
@@ -1769,7 +1808,7 @@
     "m_Type": "UnityEditor.ShaderGraph.SampleTexture2DNode",
     "m_ObjectId": "f76fd935bcf548d8889194bd1abc5835",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
     },
     "m_Name": "Sample Texture 2D",
     "m_DrawState": {

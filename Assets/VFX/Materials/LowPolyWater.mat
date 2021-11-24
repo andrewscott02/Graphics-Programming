@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava
+  m_Name: LowPolyWater
   m_Shader: {fileID: -6465566751694194690, guid: 2a170090e09811f46a149761bdaf043b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -93,7 +93,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4856c1cb3cf44731819bb1e0bcc56b7b: 0.63
+    - Vector1_4856c1cb3cf44731819bb1e0bcc56b7b: 1
     - Vector1_5ec8410398d246f6a0551bc8c0fda431: 1
     - Vector1_b7c2bc9005144764ab255369f84d8ad0: 50
     - Vector1_c2a749303c6943349bba1a4602abc843: 0.01
@@ -124,11 +124,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_892c06d3d31a482394901fb0610733b8: {r: 1, g: 0.67031884, b: 0, a: 0}
-    - Color_e469915cd59d48b0b63bf0e2a20e948f: {r: 1, g: 0.14288343, b: 0, a: 0}
+    - Color_892c06d3d31a482394901fb0610733b8: {r: 0.7254902, g: 0.9058824, b: 0.8980393, a: 0}
+    - Color_e469915cd59d48b0b63bf0e2a20e948f: {r: 0.09411766, g: 0.3803922, b: 0.60784316, a: 1}
     - Color_e469915cd59d48b0b63bf0e2a20e948f_1: {r: 0, g: 0.8249755, b: 1, a: 1}
     - Vector2_272d9959ce6e49f6a18042faf1719b4e: {r: 0.2, g: 0.3, b: 0, a: 0}
-    - Vector2_f384f432788e4144bde82bf145dec775: {r: 1, g: 20, b: 0, a: 0}
+    - Vector2_f384f432788e4144bde82bf145dec775: {r: 0.64, g: 0.82, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -21,8 +21,16 @@
             "m_Id": "2d72775e01de4f519c9b609c0263c68f"
         }
     ],
-    "m_GroupDatas": [],
-    "m_StickyNoteDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "8c37b7c6f8684468aeaa779c897c9c0a"
+        }
+    ],
+    "m_StickyNoteDatas": [
+        {
+            "m_Id": "bc92f7c0e17643d583b511c80f2aa459"
+        }
+    ],
     "m_Edges": [
         {
             "m_OutputSlot": {
@@ -193,7 +201,7 @@
     "m_Type": "UnityEditor.ShaderGraph.NoiseNode",
     "m_ObjectId": "2d72775e01de4f519c9b609c0263c68f",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "8c37b7c6f8684468aeaa779c897c9c0a"
     },
     "m_Name": "Simple Noise",
     "m_DrawState": {
@@ -231,7 +239,7 @@
     "m_Type": "UnityEditor.ShaderGraph.TimeNode",
     "m_ObjectId": "4f5c3214950d486cab1d9905d3cad38e",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "8c37b7c6f8684468aeaa779c897c9c0a"
     },
     "m_Name": "Time",
     "m_DrawState": {
@@ -275,7 +283,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RemapNode",
     "m_ObjectId": "54bd82b7bb6640249d3708a0b4e064d6",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "8c37b7c6f8684468aeaa779c897c9c0a"
     },
     "m_Name": "Remap",
     "m_DrawState": {
@@ -407,6 +415,17 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "8c37b7c6f8684468aeaa779c897c9c0a",
+    "m_Title": "Creates a radial noise effect by applying a shear to simple noise",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.SubGraphOutputNode",
     "m_ObjectId": "8fe0fb8f7a794829b0e74c04bca0c2d1",
     "m_Group": {
@@ -464,7 +483,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RadialShearNode",
     "m_ObjectId": "b0b6e3fc582749559f5a3102e4702a64",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "8c37b7c6f8684468aeaa779c897c9c0a"
     },
     "m_Name": "Radial Shear",
     "m_DrawState": {
@@ -537,6 +556,26 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "bc92f7c0e17643d583b511c80f2aa459",
+    "m_Title": "Time",
+    "m_Content": "Time is applied the noise to add some movement to the effect\n",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -387.0,
+        "y": 226.0,
+        "width": 188.0,
+        "height": 100.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
 }
 
 {
