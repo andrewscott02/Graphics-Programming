@@ -54,6 +54,7 @@ public class GeneratePlaneMesh : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Assigns all of the mesh components
         mesh = new Mesh();
         meshFilter = GetComponent<MeshFilter>();
         meshCollider = GetComponent<MeshCollider>();
@@ -69,21 +70,25 @@ public class GeneratePlaneMesh : MonoBehaviour
         }
 
         CreateQuad();
-        //UpdateMesh();
 
         ResetTransform();
     }
 
     private void Update()
     {
-        //CreateQuad();
         UpdateMesh();
-
-        //parentTransform.position = new Vector3();
     }
 
     void CreateQuad()
     {
+        /*
+        Sources:
+        Mesh Generation in Unity - https://www.youtube.com/watch?v=eJEpeUH1EMg
+        Procedural Terrain in Unity - https://www.youtube.com/watch?v=64NblGkAabk
+        */
+
+        //Generates the vertices based on the z and x size of plane
+        //Loops through all of the vetices and creates a vertex for each point, offsetting them to the transform of the parent object
         #region Vertices
 
         verts = new Vector3[(xSize + 1) * (zSize + 1)];
@@ -104,6 +109,7 @@ public class GeneratePlaneMesh : MonoBehaviour
 
         #endregion
 
+        //Loops through all of the vertices and draws triangles based on the vertices
         #region Triangles
 
         tris = new int[xSize * zSize * 6];
@@ -131,6 +137,7 @@ public class GeneratePlaneMesh : MonoBehaviour
 
         #endregion
 
+        //Assigns the UV coordinates for the surface, enabling the shader animations
         #region Material
 
         uvs = new Vector2[verts.Length];
@@ -153,6 +160,7 @@ public class GeneratePlaneMesh : MonoBehaviour
         {
             mesh.Clear();
 
+            //Adjusts the y position of the vertices and maps them onto a sin wave, which creates a liquid wave effect
             for (int i = 0; i < verts.Length; i++)
             {
                 verts[i].y = Remap(Mathf.Sin(waveSpeed * (sineWaveCount * i + Time.time)), 0, 1, waveHeightMin, waveHeightMax);
@@ -167,6 +175,7 @@ public class GeneratePlaneMesh : MonoBehaviour
                 }
             }
 
+            //Sets the values for the mesh to the vertices and triangles generated here
             mesh.vertices = verts;
             mesh.triangles = tris;
             mesh.RecalculateBounds();
@@ -178,6 +187,7 @@ public class GeneratePlaneMesh : MonoBehaviour
             meshCollider.sharedMesh.RecalculateBounds();
             meshCollider.sharedMesh.RecalculateNormals();
 
+            //Loops through the vertices and dynamically adjusts the colours based on the height of the vertex
             colours = new Color[verts.Length];
 
             for (int i = 0, z = 0; z <= zSize; z++)
@@ -194,6 +204,8 @@ public class GeneratePlaneMesh : MonoBehaviour
         }
     }
 
+    #region Helper Functions
+
     private void OnDrawGizmosSelected()
     {
         if (verts != null)
@@ -205,6 +217,7 @@ public class GeneratePlaneMesh : MonoBehaviour
         }
     }
 
+    //Resets the trasnform of the mesh to the parent transform
     private void ResetTransform()
     {
         float y = this.gameObject.transform.position.y;
@@ -212,9 +225,12 @@ public class GeneratePlaneMesh : MonoBehaviour
         parentTransform.position = new Vector3(0, y, 0);
     }
 
+    //Remaps a value from one range to another
     private float Remap(float value, float inMin, float inMax, float outMin, float outMax)
     {
         //https://docs.unity3d.com/Packages/com.unity.shadergraph@6.9/manual/Remap-Node.html
         return outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
     }
+
+    #endregion
 }

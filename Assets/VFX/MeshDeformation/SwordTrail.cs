@@ -47,6 +47,7 @@ public class SwordTrail : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Assigns all of the mesh components
         mesh = new Mesh();
         meshFilter = GetComponent<MeshFilter>();
         meshCollider = GetComponent<MeshCollider>();
@@ -63,32 +64,27 @@ public class SwordTrail : MonoBehaviour
 
         CreateQuad();
         UpdateMesh();
-
-        //ResetTransform();
     }
 
     private void Update()
     {
         CreateQuad();
         UpdateMesh();
-        //ResetTransform();
-        //parentTransform.position = new Vector3();
     }
 
     void CreateQuad()
     {
+        //Uses a lerp function to move a trail point towards the point of the sword
         #region Trail Point
-
-        Vector3 newPos = new Vector3();
-
-        newPos = LinearLerp(trailPoint.transform.position, desiredTrailPoint.transform.position, Time.deltaTime * lerpSpeed);
-
-        //Debug.Log(trailPoint.transform.position + " || " + desiredTrailPoint.transform.position);
+        Vector3 newPos = LinearLerp(trailPoint.transform.position, desiredTrailPoint.transform.position, Time.deltaTime * lerpSpeed);
 
         trailPoint.transform.position = newPos;
 
         #endregion
 
+        //Generates the vertices based on the vertex count
+        //Loops through all of the vetices and assigns their position based on a quadtratic lerp between the base of the sword and the point of the sword
+        //This creates a smooth curve trail behind the blade
         #region Vertices
 
         verts = new Vector3[vertexCount];
@@ -105,6 +101,7 @@ public class SwordTrail : MonoBehaviour
 
         #endregion
 
+        //Loops through all of the vertices and draws triangles based on the vertices
         #region Triangles
 
         tris = new int[vertexCount * 3];
@@ -118,8 +115,9 @@ public class SwordTrail : MonoBehaviour
 
         #endregion
 
+        //Assigns the UV coordinates for the surface, enabling the shader animations
         #region Material
-        
+
         uvs = new Vector2[verts.Length];
 
         for (int i = 0; i <= vertexCount; i++)
@@ -137,6 +135,7 @@ public class SwordTrail : MonoBehaviour
         {
             mesh.Clear();
 
+            //Sets the values for the mesh to the vertices and triangles generated here
             mesh.vertices = verts;
             mesh.triangles = tris;
             mesh.RecalculateBounds();
@@ -144,6 +143,8 @@ public class SwordTrail : MonoBehaviour
 
             mesh.uv = uvs;
 
+            //Loops through the vertices and dynamically adjusts the colours based on the distance from the blade
+            //The closer the trail to the blade, the more opaque it is
             colours = new Color[verts.Length];
 
             for (int i = 0; i < vertexCount; i++)
@@ -155,8 +156,6 @@ public class SwordTrail : MonoBehaviour
             }
 
             mesh.colors = colours;
-
-            //Debug.Log(colours[2].a);
         }
     }
 
@@ -173,6 +172,7 @@ public class SwordTrail : MonoBehaviour
         }
     }
 
+    //Resets the trasnform of the mesh such that is aligns with the sword
     private void ResetTransform()
     {
         transform.position = new Vector3(17.6f, 14.0f, 23.8f);
@@ -180,17 +180,22 @@ public class SwordTrail : MonoBehaviour
         transform.localScale = new Vector3(0, 0, 0);
     }
 
+    //Remaps a value from one range to another
     private float Remap(float value, float inMin, float inMax, float outMin, float outMax)
     {
         //https://docs.unity3d.com/Packages/com.unity.shadergraph@6.9/manual/Remap-Node.html
         return outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
     }
 
+    //Linear and Quadratic lerp functions, from worksheet 1
+
+    //This function lerps between two vectors by lerping the two x, y and z values
     private Vector3 LinearLerp(Vector3 v0, Vector3 v1, float lerpPoint)
     {
         return new Vector3(Mathf.Lerp(v0.x, v1.x, lerpPoint), Mathf.Lerp(v0.y, v1.y, lerpPoint), Mathf.Lerp(v0.z, v1.z, lerpPoint));
     }
 
+    //This function performs a quadratic lerp between three vectors, utilizing the linear lerp to combine them
     private Vector3 QuadraticLerp(Vector3 v0, Vector3 v1, Vector3 v2, float lerpPoint)
     {
         Vector3 l0Point = LinearLerp(v0, v1, lerpPoint);
