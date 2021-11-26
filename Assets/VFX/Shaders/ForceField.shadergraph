@@ -987,6 +987,9 @@
             "m_Id": "98e7a84f6dbf4277a5dd5391ab513e36"
         },
         {
+            "m_Id": "c7132310671e4b0986e377639a1026a0"
+        },
+        {
             "m_Id": "0caa9b109067453d9820fbf4a22441c8"
         },
         {
@@ -1008,7 +1011,8 @@
         "c93293cc-6182-4ea5-adf2-679ea41e9dc5",
         "dde6eaee-dba5-4b27-ad1e-34bc9eab4d15",
         "2e595597-a3df-49b4-9032-8d12ee2072dd",
-        "2dea3dce-c590-46f5-abd2-960c6afb46e9"
+        "2dea3dce-c590-46f5-abd2-960c6afb46e9",
+        "e3a1e68c-ecf4-40ef-b033-7d4042883c5d"
     ],
     "m_PropertyIds": [
         1386476655,
@@ -1017,7 +1021,8 @@
         -810492500,
         843293148,
         8789246,
-        2121956306
+        2121956306,
+        1918215742
     ]
 }
 
@@ -1114,6 +1119,21 @@
         "x": 0.0,
         "y": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "c7132310671e4b0986e377639a1026a0",
+    "m_Id": 1918215742,
+    "m_DisplayName": "Fresnel Power",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Vector1_8c1427930b434f7b84145cb286f11c0d",
+    "m_StageCapability": 2,
+    "m_Value": 5.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {

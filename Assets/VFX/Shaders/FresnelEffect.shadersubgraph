@@ -8,6 +8,9 @@
         },
         {
             "m_Id": "ee57cc30dc58461189ec502160e3d267"
+        },
+        {
+            "m_Id": "5a44f5a571c44a32a45b43c190d4b9c3"
         }
     ],
     "m_Keywords": [],
@@ -50,6 +53,9 @@
         },
         {
             "m_Id": "b0b062e833774672b002059fff95275e"
+        },
+        {
+            "m_Id": "4489a3714fde47b482ea75971002a77c"
         }
     ],
     "m_GroupDatas": [
@@ -63,6 +69,20 @@
         }
     ],
     "m_Edges": [
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "4489a3714fde47b482ea75971002a77c"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "d8237ce3c9eb4fdd96b82f913df33dbf"
+                },
+                "m_SlotId": 2
+            }
+        },
         {
             "m_OutputSlot": {
                 "m_Node": {
@@ -319,8 +339,8 @@
     "m_ObjectId": "0df8fa8d812245f6bb24c0098f742f39",
     "m_Title": "Applies an edge glow around the material",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": -656.9998779296875,
+        "y": -636.0
     }
 }
 
@@ -666,6 +686,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "3ddf3e736df04187a568d8e34ef8646b",
+    "m_Id": 0,
+    "m_DisplayName": "Fresnel Power",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "3ff900cd0b714c92a4ff7f986759f1f7",
     "m_Id": 1,
@@ -685,6 +720,41 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "4489a3714fde47b482ea75971002a77c",
+    "m_Group": {
+        "m_Id": "0df8fa8d812245f6bb24c0098f742f39"
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -690.9999389648438,
+            "y": 35.0,
+            "width": 149.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "3ddf3e736df04187a568d8e34ef8646b"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "5a44f5a571c44a32a45b43c190d4b9c3"
     }
 }
 
@@ -824,6 +894,29 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "5a44f5a571c44a32a45b43c190d4b9c3",
+    "m_Guid": {
+        "m_GuidSerialized": "b99d1a2f-6d44-4522-bf94-cd02d78dc176"
+    },
+    "m_Name": "Fresnel Power",
+    "m_DefaultReferenceName": "Vector1_5a44f5a571c44a32a45b43c190d4b9c3",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 3.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {

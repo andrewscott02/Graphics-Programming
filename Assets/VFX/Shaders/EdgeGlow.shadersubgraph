@@ -17,6 +17,9 @@
         },
         {
             "m_Id": "479124ab391348438b9dbfbe82bc4d6f"
+        },
+        {
+            "m_Id": "8c1427930b434f7b84145cb286f11c0d"
         }
     ],
     "m_Keywords": [],
@@ -53,6 +56,9 @@
         },
         {
             "m_Id": "5ff072ab4ad94a4c86739304929299a4"
+        },
+        {
+            "m_Id": "6d017fb0f9d84c72a151551ba7c3ad8b"
         }
     ],
     "m_GroupDatas": [
@@ -126,6 +132,20 @@
                     "m_Id": "927e6cf31cb64d8c9fa67746e6affb2a"
                 },
                 "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "6d017fb0f9d84c72a151551ba7c3ad8b"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "9809a1c710324e069ab457e29ecf4883"
+                },
+                "m_SlotId": 2
             }
         },
         {
@@ -567,6 +587,27 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "59d5ab1043104e65b8d116c60b9276e2",
+    "m_Id": -901302623,
+    "m_DisplayName": "Shear Strength",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Vector2_7e20a118378c4cadbe6829477e4153e9",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 10.0,
+        "y": 10.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "5d87c75d5a0848199c6f205291593ae9",
     "m_Id": 0,
@@ -630,6 +671,15 @@
     },
     "m_Slots": [
         {
+            "m_Id": "dde1280958264b829cf5897f5d9868ee"
+        },
+        {
+            "m_Id": "59d5ab1043104e65b8d116c60b9276e2"
+        },
+        {
+            "m_Id": "a757571579ad40988712c2d9ad6bce74"
+        },
+        {
             "m_Id": "aea60b85987e48dba12a5764f89fb47f"
         }
     ],
@@ -641,8 +691,16 @@
         "m_SerializableColors": []
     },
     "m_SerializedSubGraph": "{\n    \"subGraph\": {\n        \"fileID\": -5475051401550479605,\n        \"guid\": \"2705f07cf8d851f428fe42f79fb18de5\",\n        \"type\": 3\n    }\n}",
-    "m_PropertyGuids": [],
-    "m_PropertyIds": []
+    "m_PropertyGuids": [
+        "d2b5b0ec-96b0-4348-9fc4-f5c5bed18dbf",
+        "47d278a1-3595-4e7f-981d-b8df65007b7f",
+        "39ad5fed-de96-40eb-9cce-935256a535dc"
+    ],
+    "m_PropertyIds": [
+        -1325010149,
+        -901302623,
+        1950031834
+    ]
 }
 
 {
@@ -664,6 +722,41 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "6d017fb0f9d84c72a151551ba7c3ad8b",
+    "m_Group": {
+        "m_Id": "eeba4000ae914785be6154a7bcf4c7b7"
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -779.0,
+            "y": -191.0,
+            "width": 149.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "d452d4cbdb354e198a69af7ff2ba9062"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "8c1427930b434f7b84145cb286f11c0d"
+    }
 }
 
 {
@@ -795,6 +888,29 @@
         "e31": 0.0,
         "e32": 0.0,
         "e33": 1.0
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "8c1427930b434f7b84145cb286f11c0d",
+    "m_Guid": {
+        "m_GuidSerialized": "e3a1e68c-ecf4-40ef-b033-7d4042883c5d"
+    },
+    "m_Name": "Fresnel Power",
+    "m_DefaultReferenceName": "Vector1_8c1427930b434f7b84145cb286f11c0d",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 5.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
     }
 }
 
@@ -1087,6 +1203,27 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "a757571579ad40988712c2d9ad6bce74",
+    "m_Id": 1950031834,
+    "m_DisplayName": "Shear Offset",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Vector2_4b5c9f4b57e04b489d403a0a67733965",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "aea60b85987e48dba12a5764f89fb47f",
     "m_Id": 1,
@@ -1221,6 +1358,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "d452d4cbdb354e198a69af7ff2ba9062",
+    "m_Id": 0,
+    "m_DisplayName": "Fresnel Power",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "dc1b59e86aef4c4b8916607d726730dd",
     "m_Id": 3,
@@ -1255,6 +1407,27 @@
     "m_StageCapability": 2,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "dde1280958264b829cf5897f5d9868ee",
+    "m_Id": -1325010149,
+    "m_DisplayName": "Shear Center",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Vector2_a0308811e457406ab2b492c99285f1b6",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.5,
+        "y": 0.5
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
     "m_Labels": []
 }
 
@@ -1394,8 +1567,8 @@
     "m_ObjectId": "eeba4000ae914785be6154a7bcf4c7b7",
     "m_Title": "Combines the fresnel effect with an intersection glow to apply a glow around all of the materials",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": -884.0000610351563,
+        "y": -338.0
     }
 }
 
@@ -1411,10 +1584,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -676.9999389648438,
-            "y": 194.00001525878907,
-            "width": 107.99999237060547,
-            "height": 33.999996185302737
+            "x": -673.9999389648438,
+            "y": 195.00001525878907,
+            "width": 108.00000762939453,
+            "height": 34.0
         }
     },
     "m_Slots": [
